@@ -10,13 +10,15 @@ const formatDate = timestamp => {
 };
 
 const formatSubject = subject => {
-  return subject.length > 15 ? subject.substring(0, 15) + '...' : subject;
+  const length = subject.length;
+  return length > 15 ? `${subject.substring(0, 15)}...` : subject;
 };
+
 interval(5000)
   .pipe(
     mergeMap(() => ajax.getJSON('http://localhost:3000/messages/unread').pipe(
-      catchError(() => interval(5000))
-    ))
+      catchError(() => interval(5000)),
+    )),
   )
   .subscribe(data => {
     if (data.status === 'ok') {
