@@ -1,0 +1,15 @@
+.sender {
+    min-width: 200px;
+    text-align: left;
+}
+
+.intro {
+    width: 150px;
+    text-align: left;
+}
+
+.date {
+    width: 120px;
+    text-align: left;
+
+}
